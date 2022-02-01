@@ -2,7 +2,6 @@
     <div>
         <Head :title="title" />
 
-        <jet-banner />
 
         <div class="min-h-screen bg-gray-100">
             <nav class="bg-white border-b border-gray-100">
@@ -15,13 +14,6 @@
                                 <Link :href="route('dashboard')">
                                     <jet-application-mark class="block h-9 w-auto" />
                                 </Link>
-                            </div>
-
-                            <!-- Navigation Links -->
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
-                                </jet-nav-link>
                             </div>
                         </div>
 
@@ -215,17 +207,61 @@
                     </div>
                 </div>
             </nav>
-
-            <!-- Page Heading -->
-            <header class="bg-white shadow" v-if="$slots.header">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <slot name="header"></slot>
-                </div>
-            </header>
-
             <!-- Page Content -->
             <main>
-                <slot></slot>
+                <div class="flex flex-col md:flex-row">
+                    <nav aria-label="alternative nav">
+                        <div class="bg-gray-100 shadow-xl h-20 fixed bottom-0 mt-12 md:relative md:h-screen z-10 w-full md:w-48 content-center">
+
+                            <div class="md:mt-12 md:w-48 md:fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
+                                <ul class="list-reset flex flex-row md:flex-col pt-3 md:py-3 px-1 md:px-2 text-center md:text-left">
+                                    <li class="mr-3 flex-1">
+                                        <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-black no-underline hover:text-gray-400 border-b-2 border-gray-800 hover:border-blue-500">
+                                            <i class="fas fa-tasks pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">Matricula</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-3 flex-1">
+                                        <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-black no-underline hover:text-gray-400 border-b-2 border-gray-800 hover:border-blue-500">
+                                            <i class="fas fa-tasks pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">Alumnos</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-3 flex-1">
+                                        <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-black no-underline hover:text-gray-400 border-b-2 border-gray-800 hover:border-blue-500">
+                                            <i class="fa fa-envelope pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">Cursos</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-3 flex-1">
+                                        <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-black no-underline hover:text-gray-400 border-b-2 border-gray-800 hover:border-blue-500">
+                                            <i class="fas fa-chart-area pr-0 md:pr-3 text-blue-600"></i><span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">Grados</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-3 flex-1">
+                                        <a href="#" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-black no-underline hover:text-gray-400 border-b-2 border-gray-800 hover:border-blue-500">
+                                            <i class="fa fa-wallet pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">Jornadas</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-3 flex-1">
+                                        <a href="#" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-black no-underline hover:text-gray-400 border-b-2 border-gray-800 hover:border-blue-500">
+                                            <i class="fa fa-wallet pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">Sedes</span>
+                                        </a>
+                                    </li>
+                                    <li class="mr-3 flex-1">
+                                        <a href="#" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-black no-underline hover:text-gray-400 border-b-2 border-gray-800 hover:border-blue-500">
+                                            <i class="fa fa-wallet pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base block md:inline-block">Colegio</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                        </div>
+                    </nav>
+                    <section>
+                        <div id="main" class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 md:ml-2">
+                            <slot>Content</slot>
+                        </div>
+                    </section>
+                </div>                
             </main>
         </div>
     </div>
